@@ -19,8 +19,6 @@ from web3 import Web3
 
 def main():
     player = get_account()
-    # I'm deploying my own challenge contract instead of getting instance from https://capturetheether.com/challenges/
-    # to avoid someone interacting with my challenge contract and stealing my scarce Ropsten ETH... (it happened!)
     challenge_contract = GuessTheNewNumberChallenge.deploy({"from": player, "value": Web3.toWei(1, "ether")})
     attack_contract = GuessTheNewNumberAttack.deploy({"from": player})
     
