@@ -9,16 +9,18 @@ from brownie import (
 )
 from scripts.helpful_scripts import (
     get_account,
-    get_contract_address,
+    get_challenge_contract,
     check_solution,
 )
 from web3 import Web3
 
 
 def main():
-    player = get_account()
-    owner = get_account(index=1)
-    challenge_contract = DonationChallenge.deploy({"from": owner, "value": Web3.toWei(1, "ether")})
+    player = get_account("player")
+    owner = get_account("non_player")
+    challenge_contract = get_challenge_contract(
+        DonationChallenge, "donation", [], {"from": owner, "value": Web3.toWei(1, "ether")}
+    )
 
     print("Owner:", challenge_contract.owner())
     

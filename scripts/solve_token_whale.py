@@ -9,16 +9,16 @@ from brownie import (
 )
 from scripts.helpful_scripts import (
     get_account,
-    get_contract_address,
+    get_challenge_contract,
     check_solution,
 )
 from web3 import Web3
 
 
 def main():
-    player = get_account()
-    non_player = get_account(index=1)
-    challenge_contract = TokenWhaleChallenge.deploy(player, {"from": player})
+    player = get_account("player")
+    non_player = get_account("non_player")
+    challenge_contract = get_challenge_contract(TokenWhaleChallenge, "token_whale", [player], {"from": player})
 
     tx = challenge_contract.transfer(non_player, 501, {"from": player})
     tx.wait(1)

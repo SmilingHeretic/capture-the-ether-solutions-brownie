@@ -13,11 +13,23 @@ networks:
     verify: False
     capture_the_ether: '0x71c46Ed333C35e4E6c62D32dc7C8F00D125b4fee'
     deploy: '0x94D3232B38aEe06a2Fc0088C2B6b21041F73dc9e'
-    call_me: '0x7690EEF3A8cE429f3DbEb34709fcF9698dEF6C00'
+    call_me: '0x1eE55df7a687d6083ea7F440F44F12D3Ae76bF21'
     nickname: '0x159ADB0dB8e63C866D9139318B60a175A2D6cFbE'
-    guess_the_number: '0x49425c2D8bbbbc77e88057440E5D049c78646f4E'
+    guess_the_number: '0xF5Dd6ea161fe25FD860ccaE400b5C0c601f5B7bd'
+    guess_the_secret_number: '0xaCA5Fe0c602Dd33B80165db07f5f36E6b7eb134B'
     guess_the_random_number: '0x3738184D2B623238B7d5eead5C6FEA020531FA4e'
+    guess_the_new_number: '0x6cE86B95eDB514080FD71aEcAe3bE7034a7E5b87'
+    predict_the_future: '0x213bCBcc5F1ff6Eed2a50e674669e9417911DBC5'
+    predict_the_block_hash: '0xCBe00167553a0ceAEf35e6C0b6172C4aBEB9a9c6'
+    token_sale: '0xec5639761e02E5C5f65030a606474eFAFdAa2902'
+    token_whale: '0xa29Bb18DE221EdBeC880df6b197dD8990f662071'
+    retirement_fund: '0xE650b0B3aA6939E184d5c8B1cF5804a0bAB46403'
+    mapping: '0xb94321c2B15a5A4f587ae1e797A7aCC451122d7c'
+    donation: '0x8B5245735F145414fCa9a0F588B8d578AC4E5B9D'
+    fifty_years: '0xbBCE1680F4F4F1E55b31b1E9880D7237886Ff6BF'
   ropsten-fork-dev:
     verify: False
 wallets:
-  from_key: ${PRIVATE_KEY}
+  from_key_player: ${PRIVATE_KEY_PLAYER}
+  from_key_non_player: ${PRIVATE_KEY_NON_PLAYER}
+nickname: "SmilingHeretic"

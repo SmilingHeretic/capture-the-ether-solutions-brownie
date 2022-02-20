@@ -10,7 +10,7 @@ from brownie import (
 )
 from scripts.helpful_scripts import (
     get_account,
-    get_contract_address,
+    get_challenge_contract,
     check_solution,
     get_web3,
 )
@@ -18,8 +18,10 @@ from web3 import Web3
 
 
 def main():
-    player = get_account()
-    challenge_contract = FiftyYearsChallenge.deploy(player, {"from": player, "value": Web3.toWei(1, "ether")})
+    player = get_account("player")
+    challenge_contract = get_challenge_contract(
+        FiftyYearsChallenge, "fifty_years", [player], {"from": player, "value": Web3.toWei(1, "ether")}
+    )
     w3 = get_web3()
 
     day = 3600 * 24

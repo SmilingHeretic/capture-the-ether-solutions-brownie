@@ -9,12 +9,8 @@ from brownie.network.state import Chain
 from brownie import web3
 from web3 import Web3
 
-def get_account(index=None, id=None):
-    if index:
-        return accounts[index]
-    if id:
-        return accounts.load(id)
-    return accounts.add(config["wallets"]["from_key"])
+def get_account(account_name):
+    return accounts.add(config["wallets"][f"from_key_{account_name}"])
 
 def get_web3():
     # this looks terrible...
@@ -40,6 +36,12 @@ def deploy_with_bytecode(abi, bytecode, deployer_account):
     # Wait for the transaction to be mined, and get the transaction receipt
     tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
     return tx_receipt
+
+def get_challenge_contract(contract_container, name, constructor_params, tx_params):
+    if network.show_active() == 'ropsten':
+        return contract_container.at(get_contract_address(name))
+    elif network.show_active() == 'ropsten-fork-dev':
+        return contract_container.deploy(*constructor_params, tx_params)
 
 def get_contract_address(name):
     return config["networks"]['ropsten'][name]

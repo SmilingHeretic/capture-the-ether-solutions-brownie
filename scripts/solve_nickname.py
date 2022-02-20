@@ -14,13 +14,11 @@ from web3 import Web3
 
 
 def main():
-    player = get_account()
+    player = get_account("player")
     capture_the_ether_address = get_contract_address('capture_the_ether')
-    challenge_address = get_contract_address("nickname")
-
     capture_the_ether_contract = interface.ICaptureTheEther(capture_the_ether_address)
 
-    nickname = "SmilingHeretic"
+    nickname = config["nickname"]
     bytes_nickname = Web3.toHex(text=nickname)
     bytes32_nickname = f'{bytes_nickname}{(len("0x") + 64 - len(bytes_nickname)) * "0"}'
     
