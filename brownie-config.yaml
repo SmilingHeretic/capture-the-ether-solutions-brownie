@@ -27,6 +27,7 @@ networks:
     mapping: '0xb94321c2B15a5A4f587ae1e797A7aCC451122d7c'
     donation: '0x8B5245735F145414fCa9a0F588B8d578AC4E5B9D'
     fifty_years: '0xbBCE1680F4F4F1E55b31b1E9880D7237886Ff6BF'
+    fuzzy_identity: '0xfBF4325a5686295b2A7eC2B07bFcA9Ed8AC40135'
   ropsten-fork-dev:
     verify: False
 wallets:
