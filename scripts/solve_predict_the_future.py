@@ -23,7 +23,6 @@ def main():
         PredictTheFutureChallenge, "predict_the_future", [], {"from": player, "value": Web3.toWei(1, "ether")}
     )
     attack_contract = PredictTheFutureAttack.deploy(challenge_contract, {"from": player})
-    # attack_contract = PredictTheFutureAttack.at("0x5eC7FdE351AE65540872f26f6EC570Cf4FAb5E4c")
 
     attack_contract.lockInGuess(0, {"from": player, "value": Web3.toWei(1, "ether")})
     while not challenge_contract.isComplete():
