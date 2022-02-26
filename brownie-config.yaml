@@ -30,6 +30,7 @@ networks:
     fuzzy_identity: '0xfBF4325a5686295b2A7eC2B07bFcA9Ed8AC40135'
     public_key: '0xe46177D91dDB394514178b319Fc5547B049D66b0'
     account_takeover: '0x47787C40FBC15a42C9D18668bce49ed2Ed38cCfb'
+    assume_ownership: '0xFB6e20268A807e3c30CA9e8f57D4E538e6a48B69'
   ropsten-fork-dev:
     verify: False
 wallets:
