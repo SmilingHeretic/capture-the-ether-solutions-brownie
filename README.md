@@ -6,6 +6,8 @@ Solutions to smart contract security CTF [Capture The Ether](https://capturethee
 
 [Install Brownie v1.17.0](https://eth-brownie.readthedocs.io/en/stable/install.html)
 
+Replace `nickname: "SmilingHeretic"` in `brownie-config.yaml` with your own nickname.
+
 Add `.env` file to the project directory with the following content:
     
     export WEB3_INFURA_PROJECT_ID=yourinfuraprojectkey
