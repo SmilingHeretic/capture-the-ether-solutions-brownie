@@ -31,6 +31,7 @@ networks:
     public_key: '0xe46177D91dDB394514178b319Fc5547B049D66b0'
     account_takeover: '0x47787C40FBC15a42C9D18668bce49ed2Ed38cCfb'
     assume_ownership: '0xFB6e20268A807e3c30CA9e8f57D4E538e6a48B69'
+    token_bank: '0x6ddfE187F4437Ac6e47e39c1B1a867b3b938ecd2'
   ropsten-fork-dev:
     verify: False
 wallets:
