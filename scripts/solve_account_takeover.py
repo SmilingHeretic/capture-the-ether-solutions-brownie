@@ -47,7 +47,6 @@ def main():
     p = 115792089237316195423570985008687907852837564279074904382605163141518161494337
 
     k = ((z_0 - z_1) * pow((s_0 - s_1), -1, p)) % p
-    k_acc = accounts.add(k)
     private_key = ((s_0 * k - z_0) * pow(r_0, -1, p)) % p
 
     hacked_account = accounts.add(Web3.toHex(private_key))
